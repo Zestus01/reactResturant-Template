@@ -4,7 +4,7 @@ import React from 'react'
 
 function LogoImg (){
     return (
-        <img src="./img/ghost.png" alt='Picture of a ghost'></img>
+        <img src="img/ghost.png" alt='Ghost Logo'></img>
     )
 }
 
@@ -20,5 +20,14 @@ export function Header(){
             <LogoImg />
             <Title />
         </div>
+    )
+}
+
+
+export function Footer(){
+    return(
+        <footer className='row d-flex bg-secondary justify-content-end'>
+            <p>The Address is 3125 Spooksville <br></br>Spookcentral California 66666</p>
+        </footer>
     )
 }
