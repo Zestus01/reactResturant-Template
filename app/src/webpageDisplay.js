@@ -8,39 +8,37 @@ function LogoImg (){
     )
 }
 
+export function BrunchLoad(props){
+    
+}
 
+export function BreakfestLoad(props){
+
+}
+
+export function DinnerLoad(props){
+
+}
+
+export function SideLoad(props){
+
+}
+
+export function LunchLoad(props){
+
+}
+
+export function AppetizerLoad(props){
+
+}
+
+export function DessertLoad(props){
+
+}
 
 function Title (){
     return(
         <h1 className='text-muted display-3'>Ghost Boorant</h1>
-    )
-}
-
-function Navbar(){
-    return(
-    <div>
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-3">
-            <div className="container-fluid">
-                <a className="navbar-brand">Boorant</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-                <div className="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link" href='#'>Breakfest</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Lunch</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Dinner</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
     )
 }
 
@@ -61,3 +59,30 @@ export function Footer(){
         </footer>
     )
 }
+// function Navbar(){
+//     return(
+//     <div>
+//         <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-3">
+//             <div className="container-fluid">
+//                 <a className="navbar-brand">Boorant</a>
+//             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+//                 <span className="navbar-toggler-icon"></span>
+//             </button>
+//                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
+//                     <ul className="navbar-nav">
+//                     <li className="nav-item">
+//                         <a className="nav-link" href='#'>Breakfest</a>
+//                     </li>
+//                     <li className="nav-item">
+//                         <a className="nav-link" href="#">Lunch</a>
+//                     </li>
+//                     <li className="nav-item">
+//                         <a className="nav-link" href="#">Dinner</a>
+//                     </li>
+//                 </ul>
+//                 </div>
+//             </div>
+//         </nav>
+//     </div>
+//     )
+// }

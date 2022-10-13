@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import {Header, Footer,} from './webpageDisplay'
+import {Header, Footer, AppetizerLoad, BreakfestLoad, BrunchLoad, SideLoad, DinnerLoad, LunchLoad, DessertLoad,} from './webpageDisplay'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 const url = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
@@ -38,6 +38,9 @@ export default function App(){
                         <a className="nav-link" onClick={() =>setPage('brunch')}>Brunch</a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" onClick={() => setPage('app')}>Appetizers</a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" onClick={() => setPage('lunch')}>Lunch</a>
                     </li>
                     <li className="nav-item">
@@ -53,29 +56,15 @@ export default function App(){
                 </div>
             </div>
         </nav>
-    </div>
+        {page === 'breakfest' && <BreakfestLoad menu={menuState} />}
+        {page === 'brunch' && <BrunchLoad menu={menuState} />}
+        {page === 'lunch' && <LunchLoad menu={menuState} />}
+        {page === 'dinner' && <DinnerLoad menu={menuState} />}
+        {page === 'sides' && <SideLoad menu={menuState} />}
+        {page === 'desserts' && <DessertLoad menu={menuState} />}
+        {page === 'app' && <AppetizerLoad menu={menuState} />}
+    </div>  //} Final Div
   )
-}
-
-function MenuDisplay(props){
-  if(props.page !='home'){ 
-  let menuData =  props.data.filter( (item) => item['category']['title'] === props.page);
-  }
-  let pagaData = [];
-  if(props.page === 'home'){
-    return (
-      <div>
-        Please select a menu from the drop down
-      </div>
-    )
-  } else {
-      for(let item of menuData){
-        pageData.push(<div>Hello</div>)
-      }
-    }
-  
-    return (pageData);
-    
 }
 
 
