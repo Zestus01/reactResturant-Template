@@ -13,72 +13,77 @@ let brunchItems = [];
 let dinnerItems = [];
 let menuData = [];
 
-async function getAPIData(){
-    try {
-        const response = await axios.get(url);
-        parseData(response);
-        return menuData; 
-    }
-    catch(error){
-        console.log('Error on getting the data');
-    }
-}
+export default function App(){
+  const[dinnerState, setDinnerState] = React.useState(null);
+  const[lunchState, setLunchState] = React.useState(null);
+  const[sideState, setSideState] = React.useState(null);
+  const[brunchState, setBrunchState] = React.useState(null);
+  const[dessertState, setDessertState] = React.useState(null);
+  const[appState, setAppState] = React.useState(null);
+  const[breakfestState, setBreakfestState] = React.useState(null);
+  const[menuState, setMenuSate] = React.useState(null);
 
-async function parseData(response){
-  const[dinnerState, setDinnerState] = useState([]);
-  const[lunchState, setLunchState] = useState([]);
-  const[sideState, setSideState] = useState([]);
-  const[brunchState, setBrunchState] = useState([]);
-  const[dessertState, setDessertState] = useState([]);
-  const[appState, setAppState] = useState([]);
-  const[breakfestState, setBreakfestState] = useState([]);
-
-  console.log('hello');
-    for(let obj of response.data){
+  React.useEffect(() => {
+    axios.get(url).then((response) => {
+      for(let obj of response.data){
         switch(obj['category']['title']){
-            case 'Dinner':
-                dinnerItems.push(obj);
-                break;
+          case 'Dinner':
+            dinnerItems.push(obj);
+            break;
             case 'Appetizer':
-                appItems.push(obj);
-                break;
-            case 'Breakfest':
-                breakfestItems.push(obj);
-                break;
-            case 'Lunch':
-                lunchItems.push(obj);
-                break;
-            case 'Side':
-                sideItems.push(obj);
-                break;
-            case 'Brunch':
-                brunchItems.push(obj);
-                break;
-            case 'Dessert':
-                dessertItems.push(obj);
-                break;
+                  appItems.push(obj);
+                  break;
+              case 'Breakfest':
+                  breakfestItems.push(obj);
+                  break;
+              case 'Lunch':
+                  lunchItems.push(obj);
+                  break;
+              case 'Side':
+                  sideItems.push(obj);
+                  break;
+              case 'Brunch':
+                  brunchItems.push(obj);
+                  break;
+              case 'Dessert':
+                  dessertItems.push(obj);
+                  break;
+          };
         }
-    }
-    
-    setAppState(appItems);
-    setSideState(sideItems);
-    setDinnerState(dinnerItems);
-    setLunchState(lunchItems);
-    setBreakfestState(breakfestItems);
-    setBrunchState(brunchItems);
-    setDessertState(dessertItems);
-    menuData = [breakfestItems, brunchItems, lunchItems, appItems, dinnerItems, sideItems, dessertItems];
-    console.log(breakfestItems);
+      setMenuSate([appItems, breakfestItems, brunchItems, lunchItems, dinnerItems, sideItems, dessertItems]);
+      setAppState(appItems);
+      setSideState(sideItems);
+      setDinnerState(dinnerItems);
+      setLunchState(lunchItems);
+      setBreakfestState(breakfestItems);
+      setBrunchState(brunchItems);
+      setDessertState(dessertItems);
+    });
+  });
+  if(!menuState){
+    return "Nothing"
+  }
+  return(
+    <div>
+      <h1>Menu items</h1>
+      {dinnerState.map( (item) => <> <h2>{item.title}</h2>  <p className='text-muted'>{item.description}</p> </> )}
+    </div>
+  )
 }
+
+
+
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-//
   
-   <React.StrictMode>
+  
+  <React.StrictMode>
     <Header />
+    <App />
     <Footer />
-    
   </React.StrictMode>
 );
