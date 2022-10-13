@@ -9,7 +9,10 @@ function LogoImg (){
 }
 
 export function BrunchLoad(props){
-    
+    let brunchItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Brunch';
+    });
+    console.log(brunchItems);
 }
 
 export function BreakfestLoad(props){
