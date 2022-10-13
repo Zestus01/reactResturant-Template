@@ -14,13 +14,6 @@ let dinnerItems = [];
 let menuData = [];
 
 export default function App(){
-  const[dinnerState, setDinnerState] = React.useState(null);
-  const[lunchState, setLunchState] = React.useState(null);
-  const[sideState, setSideState] = React.useState(null);
-  const[brunchState, setBrunchState] = React.useState(null);
-  const[dessertState, setDessertState] = React.useState(null);
-  const[appState, setAppState] = React.useState(null);
-  const[breakfestState, setBreakfestState] = React.useState(null);
   const[menuState, setMenuSate] = React.useState(null);
 
   React.useEffect(() => {
@@ -51,13 +44,6 @@ export default function App(){
           };
         }
       setMenuSate([appItems, breakfestItems, brunchItems, lunchItems, dinnerItems, sideItems, dessertItems]);
-      setAppState(appItems);
-      setSideState(sideItems);
-      setDinnerState(dinnerItems);
-      setLunchState(lunchItems);
-      setBreakfestState(breakfestItems);
-      setBrunchState(brunchItems);
-      setDessertState(dessertItems);
     });
   });
   if(!menuState){
@@ -66,7 +52,7 @@ export default function App(){
   return(
     <div>
       <h1>Menu items</h1>
-      {dinnerState.map( (item) => <> <h2>{item.title}</h2>  <p className='text-muted'>{item.description}</p> </> )}
+      {menuState[3].map( (item) => <> <h2>{item.title}</h2>  <p className='text-muted'>{item.description}</p> </> )}
     </div>
   )
 }
