@@ -25,6 +25,14 @@ async function getAPIData(){
 }
 
 async function parseData(response){
+  const[dinnerState, setDinnerState] = useState([]);
+  const[lunchState, setLunchState] = useState([]);
+  const[sideState, setSideState] = useState([]);
+  const[brunchState, setBrunchState] = useState([]);
+  const[dessertState, setDessertState] = useState([]);
+  const[appState, setAppState] = useState([]);
+  const[breakfestState, setBreakfestState] = useState([]);
+
   console.log('hello');
     for(let obj of response.data){
         switch(obj['category']['title']){
@@ -51,6 +59,14 @@ async function parseData(response){
                 break;
         }
     }
+    
+    setAppState(appItems);
+    setSideState(sideItems);
+    setDinnerState(dinnerItems);
+    setLunchState(lunchItems);
+    setBreakfestState(breakfestItems);
+    setBrunchState(brunchItems);
+    setDessertState(dessertItems);
     menuData = [breakfestItems, brunchItems, lunchItems, appItems, dinnerItems, sideItems, dessertItems];
     console.log(breakfestItems);
 }
