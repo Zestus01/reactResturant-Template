@@ -31,7 +31,7 @@ export default function App(){
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('Breakfest')}>Breakfest</a>
+                        <a className="nav-link" onClick={() =>setPage('Breakfast')}>Breakfest</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" onClick={() =>setPage('Brunch')}>Brunch</a>
