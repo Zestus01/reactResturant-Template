@@ -8,6 +8,8 @@ function LogoImg (){
     )
 }
 
+
+
 function Title (){
     return(
         <h1 className='text-muted display-3'>Ghost Boorant</h1>
@@ -17,7 +19,7 @@ function Title (){
 function Navbar(){
     return(
     <div>
-        <nav className="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-3">
             <div className="container-fluid">
                 <a className="navbar-brand">Boorant</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -26,7 +28,7 @@ function Navbar(){
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Breakfest</a>
+                        <a className="nav-link" href='#'>Breakfest</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#">Lunch</a>
@@ -44,9 +46,8 @@ function Navbar(){
 
 export function Header(){
     return(
-        <div className='d-flex row'>
+        <div className='row d-flex'style={{height: 10 + 'vh'}}>
             <LogoImg />
-            <Navbar />
             <Title />
         </div>
     )
