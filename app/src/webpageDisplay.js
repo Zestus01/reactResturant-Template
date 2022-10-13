@@ -8,35 +8,118 @@ function LogoImg (){
     )
 }
 
+export function MenuLoad(props){
+    console.log(props.page);
+    let menuItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === props.page;
+    });
+    console.log(menuItems);
+    return(
+        <>
+            {menuItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
+}
+
 export function BrunchLoad(props){
     let brunchItems = props.menu.filter( (item) => { 
         return item['category']['title'] === 'Brunch';
     });
-    console.log(brunchItems);
+    return(
+        <>
+            {brunchItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function BreakfestLoad(props){
-
+    let breakfestItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Breakfast';
+    });
+    return(
+        <>
+            {breakfestItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function DinnerLoad(props){
-
+    let dinnerItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Dinner';
+    });
+    return(
+        <>
+            {dinnerItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function SideLoad(props){
-
+    let sideItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Side';
+    });
+    return(
+        <>
+            {sideItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function LunchLoad(props){
-
+    let lunchItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Lunch';
+    });
+    return(
+        <>
+            {lunchItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function AppetizerLoad(props){
-
+    let appItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Appetizer';
+    });
+    return(
+        <>
+            {appItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 export function DessertLoad(props){
-
+    let dessertItems = props.menu.filter( (item) => { 
+        return item['category']['title'] === 'Dessert';
+    });
+    return(
+        <>
+            {dessertItems.map((item) => <> 
+                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
+                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
+            </>)}
+        </>
+    )
 }
 
 function Title (){
@@ -47,7 +130,7 @@ function Title (){
 
 export function Header(){
     return(
-        <div className='row d-flex'style={{height: 10 + 'vh'}}>
+        <div className='row d-flex mt-4'style={{height: 10 + 'vh'}}>
             <LogoImg />
             <Title />
         </div>

@@ -1,13 +1,11 @@
 import axios from 'axios'
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import {Header, Footer, AppetizerLoad, BreakfestLoad, BrunchLoad, SideLoad, DinnerLoad, LunchLoad, DessertLoad,} from './webpageDisplay'
-import "bootstrap/dist/css/bootstrap.min.css"
+import {Header, Footer, MenuLoad, AppetizerLoad, BreakfestLoad, BrunchLoad, SideLoad, DinnerLoad, LunchLoad, DessertLoad,} from './webpageDisplay'
+import "bootstrap/dist/css/bootstrap.min.css" 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const url = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
-let menuData = [];
-
 
 export default function App(){
 
@@ -19,7 +17,7 @@ export default function App(){
 
   if(menuState === null){
     return(
-      <div> Please wait, loading.............</div>
+      <div> Please wait, loading our menu........</div>
     )
   }
   return(
@@ -33,46 +31,44 @@ export default function App(){
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('breakfest')}>Breakfest</a>
+                        <a className="nav-link" onClick={() =>setPage('Breakfest')}>Breakfest</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('brunch')}>Brunch</a>
+                        <a className="nav-link" onClick={() =>setPage('Brunch')}>Brunch</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('app')}>Appetizers</a>
+                        <a className="nav-link" onClick={() => setPage('Appetizer')}>Appetizers</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('lunch')}>Lunch</a>
+                        <a className="nav-link" onClick={() => setPage('Lunch')}>Lunch</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('dinner')}>Dinner</a>
+                        <a className="nav-link" onClick={() => setPage('Dinner')}>Dinner</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('sides')}>Sides</a>
+                        <a className="nav-link" onClick={() =>setPage('Side')}>Sides</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('desserts')}>Desserts</a>
+                        <a className="nav-link" onClick={() =>setPage('Dessert')}>Desserts</a>
                     </li>
                 </ul>
                 </div>
             </div>
         </nav>
-        {page === 'breakfest' && <BreakfestLoad menu={menuState} />}
+        <MenuLoad menu={menuState} page={page} />
+        {/* {page === 'breakfest' && <BreakfestLoad menu={menuState} />}
         {page === 'brunch' && <BrunchLoad menu={menuState} />}
         {page === 'lunch' && <LunchLoad menu={menuState} />}
         {page === 'dinner' && <DinnerLoad menu={menuState} />}
         {page === 'sides' && <SideLoad menu={menuState} />}
         {page === 'desserts' && <DessertLoad menu={menuState} />}
-        {page === 'app' && <AppetizerLoad menu={menuState} />}
+        {page === 'app' && <AppetizerLoad menu={menuState} />} */}
     </div>  //} Final Div
   )
 }
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  
-  
+root.render(  
   <React.StrictMode>
     <Header />
     <App />
