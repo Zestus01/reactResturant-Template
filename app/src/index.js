@@ -5,18 +5,17 @@ import {Header, Footer, MenuLoad,} from './webpageDisplay'
 import "bootstrap/dist/css/bootstrap.min.css" 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-const url = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
-
+// URL for the API data
+const URL = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
+// Main functionality of the webpage, responsible for creating the navbar, getting data, and passing it
 export default function App(){
-
   const[page, setPage] = useState('Home');
   const[menuState, setMenuSate] = useState(null);
   React.useEffect(() => {
-    axios.get(url).then((response) => setMenuSate(response.data));
+    axios.get(URL).then((response) => setMenuSate(response.data));
   }, []);
-
+  // Creates the sections for posting the navigation links. 
   let sections = ["Breakfast", "Brunch", "Appetizer", "Lunch", "Dinner", "Side", "Dessert"];
-  let loading = menuState ? 'Menu is loaded' : "Please Wait, Menu is loading";
   return(
       <div>
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-3">
@@ -39,11 +38,10 @@ export default function App(){
     </div>  //} Final Div
   )
 }
-
+// Helper function for spacing.
 function Space(){
   return(
     <div>
-  
     </div>
   )
 }
