@@ -4,133 +4,34 @@ import React from 'react'
 
 function LogoImg (){
     return (
-        <img src="./img/ghost.png" alt='Ghost Logo'></img>
+        <img src={require("./img/ghost.png")} alt='Ghost Logo' style={{height: 20 + 'vh', width: 20 +'vh'}} className='img-fluid col-6 img-thumbnail'></img>
     )
 }
 
 export function MenuLoad(props){
-    console.log(props.page);
     let menuItems = props.menu.filter( (item) => { 
         return item['category']['title'] === props.page;
     });
-    console.log(menuItems);
     return(
         <>
-            {menuItems.map((item) => <> 
+            {menuItems.map((item) => <card className='container col-6'> 
                 <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
                 <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
+            </card>)}
         </>
     )
 }
 
-export function BrunchLoad(props){
-    let brunchItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Brunch';
-    });
-    return(
-        <>
-            {brunchItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function BreakfestLoad(props){
-    let breakfestItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Breakfast';
-    });
-    return(
-        <>
-            {breakfestItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function DinnerLoad(props){
-    let dinnerItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Dinner';
-    });
-    return(
-        <>
-            {dinnerItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function SideLoad(props){
-    let sideItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Side';
-    });
-    return(
-        <>
-            {sideItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function LunchLoad(props){
-    let lunchItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Lunch';
-    });
-    return(
-        <>
-            {lunchItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function AppetizerLoad(props){
-    let appItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Appetizer';
-    });
-    return(
-        <>
-            {appItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
-
-export function DessertLoad(props){
-    let dessertItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === 'Dessert';
-    });
-    return(
-        <>
-            {dessertItems.map((item) => <> 
-                <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
-                <p className='text-muted display-5'>{item.description} - {item.price}</p> 
-            </>)}
-        </>
-    )
-}
 
 function Title (){
     return(
-        <h1 className='text-muted display-3'>Ghost Boorant</h1>
+        <h1 className='col-6 text-muted display-3'>Ghost Boorant</h1>
     )
 }
 
 export function Header(){
     return(
-        <div className='row d-flex mt-4'style={{height: 10 + 'vh'}}>
+        <div className='container row col-12 d-flex mt-4 mb-5'style={{height: 10 + 'vh'}}>
             <LogoImg />
             <Title />
         </div>
@@ -140,7 +41,7 @@ export function Header(){
 
 export function Footer(){
     return(
-        <footer className='row d-flex bg-secondary justify-content-end'>
+        <footer className='container-fluid col-12 row mt-5 d-flex bg-secondary'>
             <p>The Address is 3125 Spooksville <br></br>Spookcentral California 66666</p>
         </footer>
     )

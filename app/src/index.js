@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import {Header, Footer, MenuLoad, AppetizerLoad, BreakfestLoad, BrunchLoad, SideLoad, DinnerLoad, LunchLoad, DessertLoad,} from './webpageDisplay'
+import {Header, Footer, MenuLoad,} from './webpageDisplay'
 import "bootstrap/dist/css/bootstrap.min.css" 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
@@ -9,8 +9,8 @@ const url = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
 
 export default function App(){
 
-  const[page, setPage] = React.useState('home');
-  const[menuState, setMenuSate] = React.useState(null);
+  const[page, setPage] = useState('home');
+  const[menuState, setMenuSate] = useState(null);
   React.useEffect(() => {
     axios.get(url).then((response) => setMenuSate(response.data));
   }, []);
@@ -24,45 +24,39 @@ export default function App(){
       <div>
         <nav className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-3">
             <div className="container-fluid">
-                <a className="navbar-brand">Boorant</a>
+                <a href='#' className="navbar-brand">The Boorant</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span className="navbar-toggler-icon"></span>
             </button>
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('Breakfast')}>Breakfest</a>
+                        <a className="nav-link" href='#' onClick={() =>setPage('Breakfast')}>Breakfest</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('Brunch')}>Brunch</a>
+                        <a className="nav-link" href='#' onClick={() =>setPage('Brunch')}>Brunch</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('Appetizer')}>Appetizers</a>
+                        <a className="nav-link" href='#' onClick={() => setPage('Appetizer')}>Appetizers</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('Lunch')}>Lunch</a>
+                        <a className="nav-link" href='#' onClick={() => setPage('Lunch')}>Lunch</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() => setPage('Dinner')}>Dinner</a>
+                        <a className="nav-link" href='#' onClick={() => setPage('Dinner')}>Dinner</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('Side')}>Sides</a>
+                        <a className="nav-link" href='#' onClick={() =>setPage('Side')}>Sides</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={() =>setPage('Dessert')}>Desserts</a>
+                        <a className="nav-link" href='#' onClick={() =>setPage('Dessert')}>Desserts</a>
                     </li>
                 </ul>
                 </div>
             </div>
         </nav>
         <MenuLoad menu={menuState} page={page} />
-        {/* {page === 'breakfest' && <BreakfestLoad menu={menuState} />}
-        {page === 'brunch' && <BrunchLoad menu={menuState} />}
-        {page === 'lunch' && <LunchLoad menu={menuState} />}
-        {page === 'dinner' && <DinnerLoad menu={menuState} />}
-        {page === 'sides' && <SideLoad menu={menuState} />}
-        {page === 'desserts' && <DessertLoad menu={menuState} />}
-        {page === 'app' && <AppetizerLoad menu={menuState} />} */}
+        
     </div>  //} Final Div
   )
 }

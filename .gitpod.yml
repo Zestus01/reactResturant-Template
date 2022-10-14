@@ -2,5 +2,6 @@ image:
   file: .devcontainer/Dockerfile
 
 tasks:
+  - command: cd app
+  - command: bash .devcontainer/postStartCommand.sh && bash && exit 
   - init: bash .devcontainer/onCreateCommand.sh && npm i react && npm i axios
-    command: bash .devcontainer/postStartCommand.sh && bash && exit 
