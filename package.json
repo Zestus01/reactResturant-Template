@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^1.1.2",
+    "bootstrap": "^5.2.2",
+    "ract": "^0.0.1",
+    "react": "^18.2.0"
+  }
+}
