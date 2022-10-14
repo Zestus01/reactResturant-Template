@@ -7,17 +7,18 @@ function LogoImg (){
         <img src={require("./img/ghost.png")} alt='Ghost Logo' style={{height: 10 + 'vh', width: 10 +'vh'}} className='img-fluid col-6 img-thumbnail'></img>
     )
 }
-
+// Responsible for posting the necessary menu Items
 export function MenuLoad(props){
-
     if(props.page === 'Home' || props.menu === null){
         return (
             <Homepage menu={props.menu}/>
         )
     }
+    // Filters the menu items for what page got selected
     let menuItems = props.menu.filter( (item) => { 
         return item['category']['title'] === props.page;
     });
+    // Runs through the filterd menuItems and "maps" over them putting them into HTML
     return(
         <div className='row'>
             {menuItems.map((item, index) => <div className='card container-fluid col-12 col-sm-4'> 
@@ -35,7 +36,7 @@ export function MenuLoad(props){
         </div>
     )
 }
-
+// Information for the base Home page, short description of the resturant
 function Homepage(){
     return(
         <div>
@@ -56,7 +57,7 @@ function Title (){
         <h1 className='col-6 text-muted display-3'>Ghost Boorant</h1>
     )
 }
-
+// Creates the header, necessary spacing and things
 export function Header(){
     return(
         <div className='container row col-12 d-flex mt-4 mb-5'style={{height: 10 + 'vh'}}>
@@ -67,7 +68,7 @@ export function Header(){
     )
 }
 
-
+// Contains the information for the bottom rendering
 export function Footer(){
     return(
         <footer className='container-fluid col-12 row mt-5 d-flex bg-secondary'>
