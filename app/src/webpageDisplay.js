@@ -10,12 +10,7 @@ function LogoImg (){
 
 export function MenuLoad(props){
 
-    if(props.page === 'Home'){
-        return (
-            <Homepage menu={props.menu}/>
-        )
-    }
-    if(props.menu === null){
+    if(props.page === 'Home' || props.menu === null){
         return (
             <Homepage menu={props.menu}/>
         )
@@ -23,22 +18,16 @@ export function MenuLoad(props){
     let menuItems = props.menu.filter( (item) => { 
         return item['category']['title'] === props.page;
     });
-    // menuItems = menuItems.map((item) => {
-    //     if(item.description.length > 40){
-    //         item.description = item.description.slice(0,40) + '...'
-    //     }
-    //     return item;
-    // });
     return(
         <div className='row'>
             {menuItems.map((item, index) => <div className='card container-fluid col-12 col-sm-4'> 
                 <h4 className='fw-bold display-3 text-warning'>{item.title}</h4>
                 <p className='text-muted display-5'>{item.price}</p>
-                <button class="btn btn-outline-warning" type="button" data-bs-toggle="collapse" data-bs-target={"#menuItem" + index} aria-expanded="false" aria-controls={"menuItem" + index}>
+                <button className="btn btn-outline-warning" type="button" data-bs-toggle="collapse" data-bs-target={"#menuItem" + index} aria-expanded="false" aria-controls={"menuItem" + index}>
                     Description of food
                 </button>
-                <div class="collapse" id={"menuItem" + index}>
-                    <div class="card card-body">
+                <div className="collapse" id={"menuItem" + index}>
+                    <div className="card card-body">
                         {item.description}
                     </div>
                 </div>
@@ -51,10 +40,10 @@ function Homepage(){
     return(
         <div>
             <h4 className='fw-bold display-3 text-warning'> THE BOORANT</h4>
-            <p className='display-5'>A great resuturant that is actually located in the behind a Wallmart.
+            <p className='display-5'>A great resuturant that is actually located behind a Wallmart.
             We use revolutionary technology known as <strong>Dumpster Fires</strong> to cook our food. 
             We use the freshest ingredients that we find in the dumpster. 
-            Our chefs are particularly proud of the robust menu they are able to create
+            Our chefs are particularly proud of the robust menu they are able to create from this range.
             Allow us to take your tastebuds across a vast range of flavors, ranging from exotic with our Le Cigarette (our cooks favorite)
             to homey with a classic grilled cheese. Located behind a Wallmart near you!!
             </p>
@@ -89,6 +78,7 @@ export function Footer(){
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade">
             </iframe>
+            <p>Open anytime your stomach grumbles</p>
             <p>The Address is 3125 Spooksville <br></br>Spookcentral California 66666</p>
         </footer>
     )

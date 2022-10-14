@@ -27,7 +27,7 @@ export default function App(){
             </button>
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav">
-                  {sections.map( (item) => <li className="nav-item">
+                  {sections.map( (item, index) => <li key={index} className="nav-item">
                       <a className="nav-link" href='#' onClick={() =>setPage(item)}>{item}</a>
                     </li>)}
                   </ul>
