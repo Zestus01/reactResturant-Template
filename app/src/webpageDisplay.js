@@ -60,6 +60,7 @@ function Title (){
 export function Header(){
     return(
         <div className='container row col-12 d-flex mt-4 mb-5'style={{height: 10 + 'vh'}}>
+            <div className='mt-3 mb-3'></div>
             <LogoImg />
             <Title />
         </div>
