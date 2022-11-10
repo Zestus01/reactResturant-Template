@@ -6,13 +6,14 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 // URL for the API data
-const URL = 'https://astute-baton-362318.ue.r.appspot.com/api/json/';
+const URL = 'https://8000-zestus01-realbackendbis-ss48wra6ug0.ws-us75.gitpod.io';
 // Main functionality of the webpage, responsible for creating the navbar, getting data, and passing it
 export default function App(){
   const[page, setPage] = useState('Home');
   const[menuState, setMenuSate] = useState(null);
   React.useEffect(() => {
     axios.get(URL).then((response) => setMenuSate(response.data));
+    
   }, []);
   // Creates the sections for posting the navigation links. 
   let sections = ["Breakfast", "Brunch", "Appetizer", "Lunch", "Dinner", "Side", "Dessert"];

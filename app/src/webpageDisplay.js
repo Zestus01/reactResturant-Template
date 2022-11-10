@@ -16,9 +16,9 @@ export function MenuLoad(props){
     }
     // Filters the menu items for what page got selected
     let menuItems = props.menu.filter( (item) => { 
-        return item['category']['title'] === props.page;
+        return item['category_id']['title'] === props.page;
     });
-    // Runs through the filterd menuItems and "maps" over them putting them into HTML
+    // Runs through the filtered menuItems and "maps" over them putting them into HTML
     return(
         <div className='row'>
             {menuItems.map((item, index) => <div className='card container-fluid col-12 col-sm-4'> 
